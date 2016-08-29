@@ -3,9 +3,31 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>liang-excise</display-name>
   
+  <!-- 配置默认首页 -->
+  <welcome-file-list>
+  	<welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  <!-- spring dispatcher servlet 分发器 -->
   <servlet>
+  	<servlet-name>TestAll</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:conf/spring-servlet.xml</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>TestAll</servlet-name>
+  	<url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- <servlet>
   	<servlet-name>Test</servlet-name>
   	<servlet-class>com.liang.Test.TestServlet</servlet-class>
   </servlet>
@@ -13,6 +35,6 @@
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
   	<url-pattern>/hello</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   
 </web-app>
